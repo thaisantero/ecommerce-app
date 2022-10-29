@@ -1,0 +1,6 @@
+<h1>Galpão <%= @warehouse["code"] %> - <%= @warehouse["city"] %></h1>
+<div>
+  <p><%= @warehouse["area"] %> m²</p>
+  <p><%= @warehouse["address"] %> - CEP <%= formatted_cep(@warehouse["cep"]) %></p>
+  <p><%= @warehouse["description"] %></p>
+</div>

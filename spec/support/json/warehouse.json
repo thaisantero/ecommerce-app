@@ -1,0 +1,11 @@
+{
+  "id":2,
+  "name":"Maceio",
+  "city":"Maceio",
+  "area":50000,
+  "created_at":"2022-09-23T00:45:46.239Z",
+  "updated_at":"2022-09-23T00:45:46.239Z",
+  "code":"MCZ","address":"Av do Aeroporto, 20",
+  "cep":"80000000",
+  "description":"Galpão de Maceio"
+}

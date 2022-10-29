@@ -5,7 +5,7 @@
 <% else %>
   <% @warehouses.each do |w| %>
     <div>
-      <p><%= w["name"] %></p>
+      <p><%= link_to w["name"], warehouse_path(w["id"]) %></p>
       <p><%= w["code"] %></p>
   <% end %>
 <% end %>
