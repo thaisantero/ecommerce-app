@@ -2,9 +2,14 @@ require 'rails_helper'
 
 describe 'Usuário visita tela inicial' do
   it 'e vê galpões' do
-    json_data = File.read(Rails.root.join('spec/support/json/warehouses.json'))
-    fake_response = double('faraday_response', status: 200, body: json_data)
-    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
+    warehouses = []
+    warehouses << Warehouse.new(id: 1, name: 'Maceio', city: 'Maceio',
+                                area: 50000, code: 'MCZ', address: 'Av do Aeroporto, 20',
+                                cep: '80000000', description: 'Galpão de Maceio')
+    warehouses << Warehouse.new(id: 2, name: 'Fortaleza', city: 'Fortaleza',
+                                area: 4000, code: 'FOR', address: 'Av Heráclio Graça, 1000',
+                                cep: '60000021', description: 'Localizado no Ceará')
+    allow(Warehouse).to receive(:all).and_return(warehouses)
 
     visit root_path
 
@@ -14,8 +19,8 @@ describe 'Usuário visita tela inicial' do
   end
 
   it 'e não há galpões' do
-    fake_response = double('faraday_response', status: 200, body: '[]')
-    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
+    warehouses = []
+    allow(Warehouse).to receive(:all).and_return(warehouses)
 
     visit root_path
 
